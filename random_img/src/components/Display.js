@@ -29,7 +29,9 @@ const Display = props => {
         <Image src={image.largeImageURL}></Image>
       )}
 
-      {!image && word && <p>no images found for {word}</p>}
+      {!image && word && !imageIsLoading && !wordIsLoading && (
+        <p>no images found for {word}</p>
+      )}
 
       {!image && !word && <p>get a random image to get started!</p>}
 
