@@ -14,7 +14,10 @@ export const getImage = (baseUrl, query) => async dispatch => {
       `${baseUrl}/api/?key=${keys.images}&q=${query}`
     );
     console.log(res);
-    dispatch({ type: IMAGE_LOADING_SUCCESS, payload: res.data });
+    dispatch({
+      type: IMAGE_LOADING_SUCCESS,
+      payload: res.data
+    });
   } catch (err) {
     console.error(err);
     dispatch({ type: IMAGE_LOADING_FAILURE, payload: err });
