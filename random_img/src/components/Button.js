@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components"
+import styled from "styled-components";
 
 import { getWord } from "../actions/getWord";
 import { getImage } from "../actions/getImage";
 
 const Button = ({ getWord, getImage, query }) => {
-  const callAPIs = async () => {
-    await getWord("https://random-word-api.herokuapp.com/");
-    getImage("https://pixabay.com", query);
+  const callAPIs = () => {
+    getWord("https://random-word-api.herokuapp.com/");
   };
+
+  useEffect(() => {
+    getImage("https://pixabay.com", query);
+  }, [query]);
 
   return <Btn onClick={callAPIs}>get random word/image</Btn>;
 };
@@ -27,8 +30,8 @@ const Btn = styled.button`
   padding: 1rem 2rem;
   background-color: #eee;
   color: #1c1c1c;
-  transition: .2s ease-out all;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, .25);
+  transition: 0.2s ease-out all;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
   margin: 2rem;
 
@@ -37,4 +40,4 @@ const Btn = styled.button`
     background-color: #2c2c2c;
     color: #eee;
   }
-`
+`;
