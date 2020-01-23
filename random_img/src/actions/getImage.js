@@ -14,9 +14,15 @@ export const getImage = (baseUrl, query) => dispatch => {
       const res = await axios.get(
         `${baseUrl}/api/?key=${keys.images}&q=${query}`
       );
+
+      let randomIdx;
+      if (res.data.hits.length) {
+        randomIdx = Math.floor(Math.random() * res.data.hits.length);
+      }
+
       dispatch({
         type: IMAGE_LOADING_SUCCESS,
-        payload: res.data.hits[0]
+        payload: res.data.hits[randomIdx]
       });
     }, 1000);
   } catch (err) {
