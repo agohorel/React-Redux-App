@@ -16,7 +16,7 @@ const Display = props => {
 
   return (
     <Container>
-      {word && <h1>word is: {word}</h1>}
+      {word && !wordIsLoading && <h1>word is: {word}</h1>}
 
       {(wordIsLoading || imageIsLoading) && (
         <Loader type="ThreeDots" color="#eee" height={200} width={200} />
