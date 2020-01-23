@@ -33,7 +33,9 @@ const Display = props => {
         <p>no images found for {word}</p>
       )}
 
-      {!image && !word && <p>get a random image to get started!</p>}
+      {!image && !word && !wordIsLoading && (
+        <p>generate a random word to get started!</p>
+      )}
 
       {wordError || (imageError && <p>uh oh!</p>)}
     </Container>

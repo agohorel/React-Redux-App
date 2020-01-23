@@ -11,7 +11,9 @@ const Button = ({ getWord, getImage, query }) => {
   };
 
   useEffect(() => {
-    getImage("https://pixabay.com", query);
+    if (query) {
+      getImage("https://pixabay.com", query);
+    }
   }, [query]);
 
   return <Btn onClick={callAPIs}>get random word/image</Btn>;
