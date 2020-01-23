@@ -11,7 +11,7 @@ export const getWord = baseUrl => async dispatch => {
   try {
     const res = await axios.get(`${baseUrl}/word?key=${keys.words}&number=1`);
     dispatch({ type: WORD_LOADING_SUCCESS, payload: res.data[0] });
-    console.log(res.data)
+    console.log(res.data);
   } catch (err) {
     console.error(err);
     dispatch({ type: WORD_LOADING_FAILURE, err });

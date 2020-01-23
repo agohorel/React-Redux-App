@@ -18,7 +18,7 @@ const Display = props => {
 
       {wordIsLoading || (imageIsLoading && <p>loading...</p>)}
 
-      {image && image.hits && <Image src={image.hits[0].largeImageURL}></Image>}
+      {image && <Image src={image.largeImageURL}></Image>}
 
       {!image && word && <p>no images found for {word}</p>}
 

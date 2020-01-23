@@ -13,10 +13,9 @@ export const getImage = (baseUrl, query) => async dispatch => {
     const res = await axios.get(
       `${baseUrl}/api/?key=${keys.images}&q=${query}`
     );
-    console.log(res);
     dispatch({
       type: IMAGE_LOADING_SUCCESS,
-      payload: res.data
+      payload: res.data.hits[0]
     });
   } catch (err) {
     console.error(err);
