@@ -10,8 +10,6 @@ import rootReducer from "./reducers";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-console.log(store.getState());
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
