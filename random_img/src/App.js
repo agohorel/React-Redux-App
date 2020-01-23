@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 
+import GlobalStyle from "./styles/global";
+import Layout from "./components/Layout";
 import Header from "./components/Header";
 import Button from "./components/Button";
 import Display from "./components/Display";
@@ -8,9 +10,12 @@ import Display from "./components/Display";
 function App() {
   return (
     <>
-      <Header></Header>
-      <Button></Button>
-      <Display></Display>
+      <GlobalStyle />
+      <Layout>
+        <Header />
+        <Button />
+        <Display />
+      </Layout>
     </>
   );
 }
