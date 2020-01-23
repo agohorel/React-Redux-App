@@ -14,7 +14,7 @@ const Button = ({ getWord, getImage, query }) => {
     if (query) {
       getImage("https://pixabay.com", query);
     }
-  }, [query]);
+  }, [query, getWord, getImage]);
 
   return <Btn onClick={callAPIs}>get random word/image</Btn>;
 };
