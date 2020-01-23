@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Display = props => {
   const {
@@ -16,9 +18,16 @@ const Display = props => {
     <Container>
       {word && <h1>word is: {word}</h1>}
 
-      {wordIsLoading || (imageIsLoading && <p>loading...</p>)}
+      {(wordIsLoading || imageIsLoading) && (
+        <Loader type="ThreeDots" color="#eee" height={200} width={200} />
+      )}
 
-      {image && <Image src={image.largeImageURL}></Image>}
+      {wordIsLoading && <p>generating random word...</p>}
+      {imageIsLoading && <p>retrieving image...</p>}
+
+      {image && !wordIsLoading && !imageIsLoading && (
+        <Image src={image.largeImageURL}></Image>
+      )}
 
       {!image && word && <p>no images found for {word}</p>}
 
